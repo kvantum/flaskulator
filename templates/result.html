@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block result %}
+<div>
+{% if error %}
+<p style="color:red">
+    {% if error == 'NoNumberError' %}
+        One of the operands is empty. Enter real numbers, please.
+    {% elif error == 'ZeroDivError' %}
+        You are trying to divide by zero. Enter a valid numbers, please.
+				<p>
+				    {{form.number1}} {{form.operation}} {{form.number2}} = {{result}}
+		  	</p>
+		{% elif error == 'NotANumberError' %}
+		    One of the operand is not a number. Enter two real numbers and try again, please.
+    {% elif error == 'AnotherError' %}
+        Something went wrong. Try again, please.
+    {% endif %}
+</p>
+{% else %}
+  	<p>  The result of the calculation:
+			<br>
+	  {{form.number1}} {{form.operation}} {{form.number2}} = {{result}}
+		</p>
+</div>
+{% endif %}
+{% endblock %}

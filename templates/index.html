@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Calculator based on Flask</title>
+    <style>
+        h1, h2, h3 {text-align:center;}
+    </style>
+</head>
+<body>
+  <div>
+  <h2>Enter an expression to calculate</h2>
+  <p></p>
+  <img src="{{ url_for('static', filename='calculator.jpg') }}" height="400px"
+       align="left">
+    <form action="/result" method="POST">
+      <p>
+        Enter the first number:
+        <input type="text" name="number1" align="middle">
+      </p>
+      <p>
+        Enter the second number:
+        <input type="text" name="number2" align="middle"><br>
+      </p>
+      <p>Choose the operation, please:
+        <input type="radio" name="operation" value="+" checked> + &nbsp;
+        <input type="radio" name="operation" value="-"> - &nbsp;
+        <input type="radio" name="operation" value="*"> * &nbsp;
+        <input type="radio" name="operation" value="/"> / &nbsp;
+        <br><br>
+        <input type="submit" value="Calculate" align="middle">
+      </p>
+    </form>
+    <br>
+  </div>
+    {% block result %}{% endblock %}
+</body>
+</html>
